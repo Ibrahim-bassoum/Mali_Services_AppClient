@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 // Import du premier widget que nous avons créé
 import '../widgets/home/home_header.dart'; 
+//Import du widget barre de recherche
+import '../widgets/home/search_bar_section.dart';
+//Import du widget banniere
+import '../widgets/home/promo_banner.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,7 +31,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // ==========================================
             // PROCHAIN WIDGET : BARRE DE RECHERCHE
-            // (À insérer ici : SearchBarSection)
+            const SliverToBoxAdapter(
+              child: SearchSection(),
+            ),
             // ==========================================
             SliverToBoxAdapter(
               child: SizedBox(height: 10), // Espace temporaire
@@ -35,7 +41,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // ==========================================
             // PROCHAIN WIDGET : BANNER PROMO
-            // (À insérer ici : PromoBanner)
+            const SliverToBoxAdapter(
+              child: PromoBanner(),
+            ),
             // ==========================================
             SliverToBoxAdapter(
               child: SizedBox(height: 20), // Espace temporaire
