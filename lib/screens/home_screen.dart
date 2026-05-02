@@ -5,6 +5,8 @@ import '../widgets/home/home_header.dart';
 import '../widgets/home/search_bar_section.dart';
 //Import du widget banniere
 import '../widgets/home/promo_banner.dart';
+//Import wigets de la carte de gategories
+import '../widgets/home/categories_grid.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -51,21 +53,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
             // ==========================================
             // PROCHAIN WIDGET : GRILLE DES CATÉGORIES
-            // (À insérer ici : CategoryGrid)
+               
             // ==========================================
             SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Text(
-                  "Catégories populaires",
-                  style: TextStyle(
-                    fontSize: 18, 
-                    fontWeight: FontWeight.bold, 
-                    color: Color(0xFF071B44)
-                  ),
-                ),
-              ),
+              child: CategoriesGrid(),
             ),
+               
+                
+            
 
             // ==========================================
             // PROCHAIN WIDGET : LISTE DES ARTISANS
