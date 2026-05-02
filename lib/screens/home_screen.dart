@@ -78,30 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       
-      // BOUTON CENTRAL "+"
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: const Color(0xFF08B64B),
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add, color: Colors.white, size: 32),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+     
+      
 
       // BARRE DE NAVIGATION
-      bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
-        notchMargin: 8,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            IconButton(icon: const Icon(Icons.home, color: Color(0xFF08B64B)), onPressed: () {}),
-            IconButton(icon: const Icon(Icons.search), onPressed: () {}),
-            const SizedBox(width: 40), // Espace pour le bouton FAB
-            IconButton(icon: const Icon(Icons.assignment_outlined), onPressed: () {}),
-            IconButton(icon: const Icon(Icons.person_outline), onPressed: () {}),
-          ],
-        ),
-      ),
+   
     );
   }
 }
