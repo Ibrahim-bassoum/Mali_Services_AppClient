@@ -7,6 +7,8 @@ import '../widgets/home/search_bar_section.dart';
 import '../widgets/home/promo_banner.dart';
 //Import wigets de la carte de gategories
 import '../widgets/home/categories_grid.dart';
+//Import wigets artisan liste
+import '../widgets/home/artisan_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             // PROCHAIN WIDGET : GRILLE DES CATÉGORIES
                
             // ==========================================
-            SliverToBoxAdapter(
+            const SliverToBoxAdapter(
               child: CategoriesGrid(),
             ),
                
@@ -66,19 +68,11 @@ class _HomeScreenState extends State<HomeScreen> {
             // PROCHAIN WIDGET : LISTE DES ARTISANS
             // (À insérer ici : ArtisanListSection)
             // ==========================================
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  "Professionnels proches",
-                  style: TextStyle(
-                    fontSize: 18, 
-                    fontWeight: FontWeight.bold, 
-                    color: Color(0xFF071B44)
-                  ),
-                ),
-              ),
-            ),
+            const SliverToBoxAdapter(
+              child: ArtisanListSection(),
+            )
+              
+            
             
           ],
         ),
