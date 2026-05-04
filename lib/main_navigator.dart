@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
+import 'screens/search_screen.dart';
 // Importe tes autres écrans ici quand ils seront créés
 // import 'screens/search_screen.dart';
 // import 'screens/messages_screen.dart';
@@ -18,7 +19,7 @@ class _MainNavigatorState extends State<MainNavigator> {
   // Liste des pages correspondantes aux icônes du bas
   final List<Widget> _pages = [
     const HomeScreen(),
-    const Center(child: Text("Page Recherche")), // Remplacer par SearchScreen()
+    const SearchScreen(), // Remplacer par SearchScreen()
     const Center(child: Text("Page Messages")),  // Remplacer par MessagesScreen()
     const Center(child: Text("Page Profil")),    // Remplacer par ProfileScreen()
   ];
