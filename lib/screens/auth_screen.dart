@@ -4,7 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
   // 10.0.2.2 pour l'émulateur Android ou ton IP locale pour un test USB
-  static const String baseUrl = "http://192.168.1.15:8000/api";
+  static const String baseUrl = "http://172.20.10.4:8000/api";
 
   // --- CONNEXION CLIENT ---
   static Future<Map<String, dynamic>?> login(String phone, String password) async {

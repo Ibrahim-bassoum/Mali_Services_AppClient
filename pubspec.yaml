@@ -49,9 +49,13 @@ dev_dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assets/icone_app.png" # Ton nouveau fichier ici
-  adaptive_icon_background: "#08B64B" # Couleur de fond si ton icône n'est pas pleine
-  adaptive_icon_foreground: "assets/icone_app.png" 
+  image_path: "assets/icone.png" # Ton nouveau fichier ici
+  apative_icon_background: "#FFFFFF" # Couleur de fond si ton icône n'est pas pleine
+ 
+
+  min_sdk_android: 21
+
+  remove_alpha_ios: true
   
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

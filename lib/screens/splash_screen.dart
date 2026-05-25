@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:app_mali_services_client/main_navigator.dart';
+import 'package:app_mali_services_client/widgets/home/main_navigator.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

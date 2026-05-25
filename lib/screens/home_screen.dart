@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import '../widgets/home/home_header.dart'; 
+import '../widgets/home/artisan_list.dart'; 
 import '../widgets/home/search_bar_section.dart';
 import '../widgets/home/promo_banner.dart';
 import '../widgets/home/categories_grid.dart';
 import '../widgets/home/artisan_list.dart';
-
-// 1. AJOUTE CET IMPORT
+import '../widgets/home/home_header.dart';
 import '../services/api_service.dart';
+
+// CORRECTION DE L'IMPORT : Chemin vers lib/search/main_navigator.dart
+// Note : Selon l'emplacement de ton home_screen, le chemin relatif peut varier.
+// Si home_screen est dans lib/screens, le chemin est :
+import '../widgets/home/main_navigator.dart'; 
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -16,60 +20,75 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // 2. INITIALISE TON SERVICE
+  // INITIALISATION DU SERVICE API
   final ApiService _apiService = ApiService();
+
+  // VARIABLE POUR GÉRER L'ÉTAT DE LA NAVIGATION
+  int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFB), 
-      // Retire le 'const' devant SafeArea car le contenu va devenir dynamique
+      
+      // LE CONTENU PRINCIPAL
       body: SafeArea( 
         child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
           slivers: [
             
-            // ==========================================
-            // WIDGET 1 : HEADER DYNAMIQUE
-            // ==========================================
+            // HEADER DYNAMIQUE
             SliverToBoxAdapter(
               child: FutureBuilder<Map<String, dynamic>>(
-                future: _apiService.getUserProfile(), // Appelle ta nouvelle fonction
-             builder: (context, snapshot) {
-      // 1. CAS DE SUCCÈS
-                if (snapshot.hasData) {
-                              // On définit 'user' ICI, à l'intérieur du bloc où on l'utilise
-                        final user = snapshot.data as Map<String, dynamic>;
-    
-                            return HomeHeader(
-                                    name: user['name'] ?? "Utilisateur", 
-                               );
-                   } 
-
-                   // 2. CAS D'ERREUR
-                else if (snapshot.hasError) {
-                              return const HomeHeader(name: "Erreur API");
-                   }
-
-                           // 3. CAS DE CHARGEMENT
-                         return const HomeHeader(name: "Chargement...");
-              }
+                future: _apiService.getUserProfile(), 
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final user = snapshot.data as Map<String, dynamic>;
+                    return HomeHeader(
+                      name: user['name'] ?? "Utilisateur", 
+                    );
+                  } 
+                  else if (snapshot.hasError) {
+                    return const HomeHeader(name: "Utilisateur");
+                  }
+                  return const HomeHeader(name: "Chargement...");
+                }
               ),
             ),
 
-            // On garde le reste en 'const' pour l'instant
+            // BARRE DE RECHERCHE
             const SliverToBoxAdapter(child: SearchSection()),
             
             const SliverToBoxAdapter(child: SizedBox(height: 10)),
 
+            // BANNIÈRE PROMO
             const SliverToBoxAdapter(child: PromoBanner()),
             
             const SliverToBoxAdapter(child: SizedBox(height: 20)),
 
+            // GRILLE DES CATÉGORIES
             const SliverToBoxAdapter(child: CategoriesGrid()),
             
+            const SliverToBoxAdapter(child: SizedBox(height: 10)),
+
+            // LISTE DES ARTISANS
             const SliverToBoxAdapter(child: ArtisanListSection()),
+            
+            // Espace pour ne pas que le contenu soit caché par la barre
+            const SliverToBoxAdapter(child: SizedBox(height: 100)),
           ],
         ),
+      ),
+
+      // UTILISATION DU WIDGET DONT TU AS PARLÉ
+      // Assure-toi que la classe dans main_navigator.dart s'appelle bien MainNavigator
+      bottomNavigationBar: MainNavigator(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
   }

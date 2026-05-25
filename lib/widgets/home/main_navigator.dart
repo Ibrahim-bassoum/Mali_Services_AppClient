@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'screens/home_screen.dart';
-import 'screens/search_screen.dart';
+import '../../screens/home_screen.dart';
+import '../../screens/search_screen.dart';
 // Importe tes autres écrans ici quand ils seront créés
 // import 'screens/search_screen.dart';
 // import 'screens/messages_screen.dart';
 // import 'screens/profile_screen.dart';
 
 class MainNavigator extends StatefulWidget {
-  const MainNavigator({super.key});
+  final int currentIndex;
+  final Function(int) onTap;
+  const MainNavigator({super.key, required this.currentIndex, required this.onTap});
 
   @override
   State<MainNavigator> createState() => _MainNavigatorState();

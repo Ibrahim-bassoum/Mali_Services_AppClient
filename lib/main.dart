@@ -6,7 +6,7 @@ import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
 import 'package:app_mali_services_client/screens/splash_screen.dart';
-import 'package:app_mali_services_client/main_navigator.dart';
+import 'package:app_mali_services_client/widgets/home/main_navigator.dart';
 
 void main() async {
   // Indispensable pour initialiser les SharedPreferences avant le lancement de l'UI
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => RegisterScreen(),
         '/home': (context) => const HomeScreen(),
-        '/MainNavigator':(context) => const MainNavigator(),
+        '/MainNavigator':(context) =>  MainNavigator(currentIndex: 0, onTap: (index){},),
       },
     ); 
     

@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart'; // Assure-toi d'avo
 class ApiService {
   // IMPORTANT : Remplace par l'IP de ton PC (ex: 192.168.1.10) 
   // car 'localhost' ne marche pas sur un téléphone physique.
-  static const String baseUrl = "http://192.168.1.15:8000/api"; 
+  static const String baseUrl ="http://172.20.10.4:8000/api"; 
 
   Future<List<ArtisanModel>> fetchArtisans() async {
     try {

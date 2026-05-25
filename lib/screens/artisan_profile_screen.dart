@@ -1,7 +1,8 @@
+import 'package:app_mali_services_client/models/artisan_model.dart';
 import 'package:flutter/material.dart';
 
 class ArtisanProfileScreen extends StatelessWidget {
-  final Map<String, dynamic> artisan;
+  final ArtisanModel artisan;
 
   const ArtisanProfileScreen({super.key, required this.artisan});
 
@@ -36,11 +37,11 @@ class ArtisanProfileScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            artisan['name'],
+                            artisan.name,
                             style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                           ),
                           Text(
-                            artisan['job'],
+                            artisan.specialty,
                             style: TextStyle(fontSize: 18, color: Colors.grey[700]),
                           ),
                         ],
@@ -54,7 +55,7 @@ class ArtisanProfileScreen extends StatelessWidget {
                         child: Row(
                           children: [
                             const Icon(Icons.star, color: Colors.orange, size: 20),
-                            Text(" ${artisan['rating']}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                            Text(" ${artisan.rating}", style: const TextStyle(fontWeight: FontWeight.bold)),
                           ],
                         ),
                       ),
