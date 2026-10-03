@@ -1,17 +1,46 @@
-# app_mali_services_client
+# Mali Services — Application client
 
-A new Flutter project.
+Application mobile Flutter destinée aux clients de la plateforme Mali Services. Elle permet de découvrir des services, consulter les artisans et utiliser un espace personnel connecté.
 
-## Getting Started
+## Fonctionnalités
 
-This project is a starting point for a Flutter application.
+- écran d'accueil et onboarding ;
+- inscription et connexion ;
+- persistance du token de session ;
+- navigation vers l'espace client ;
+- consommation de l'API Mali Services ;
+- interface Material 3 avec thème vert ;
+- prise en charge Android, iOS, Web, Linux, macOS et Windows.
 
-A few resources to get you started if this is your first Flutter project:
+## Stack technique
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+- Flutter et Dart ;
+- `http` pour les appels API ;
+- `shared_preferences` pour la session ;
+- Provider pour la gestion d'état ;
+- Google Fonts et Lucide Icons.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Installation
+
+```bash
+flutter pub get
+flutter run
+```
+
+Pour les tests :
+
+```bash
+flutter test
+```
+
+## Configuration
+
+Configurez l'URL de l'API dans les services réseau de l'application avant une exécution sur un appareil réel.
+
+## Statut
+
+Projet en développement actif.
+
+## Auteur
+
+[Ibrahim Bassoum](https://github.com/Ibrahim-bassoum)
